@@ -1,0 +1,38 @@
+Here are the commands I have learnt for bash of linux ubuntu and I will keep on adding the commands and updating it as iwill be learning new commands time to time.
+
+- # sudo apt update && sudo apt upgrade : to update all apps.
+- # pwd : to check the where are you right now. It actually prints the working directory.
+- # cd : use to navigate/change the directories.
+- # ls : list all of the files and directories of current
+- # ls -l : For detailed listings of files.
+- # ls -a : For showing hidden files of the directory.
+- # ls -s : show the size of the files and directories.
+- # ls -R : to show all the file of all directories.
+- # ls -lR | grep .json : bring all the json files.
+- # ls \*.json : gives you all the json files in current directory only.
+- # ls -lt : last time modifies ordered files shown.
+- # ls .. : list all files of the parent directory.
+- # mkdir : to create the new directory.
+- # mkdir test && cd test : make a directory test and move into it in one command.
+- # touch : to create the new file with the required extension.
+- # cat : to print the data/content of the file.
+- # head filename : to read the first 10 lines of the file.
+- # tail filename : to read the first 10 lines of the file.
+- # head -n filename : to read the first n lines of the file.
+- # wc filename : count word, lines and characters from the file.
+- # grep "..." filename : find this word and its count and occurance of line.
+- # grep -hinw "..." filename : match and fetch the word in space of .... with the conditions.
+- # h means just match the string either full word or part of any word.
+- # i means ignore the case differences.
+- # n also mentions the line numbers with it.
+- # w fetch the given string as the whole word.
+- # vi : to edit the content of file. it is very vast command , explore it on the chatgpt.
+- # nano : to edit the file but in very simple fashion.
+- # mv : to move one file to any other directory.
+- # cp : to copy one file/directory to anyother directory.
+- # cp -r : to copy one directory to any other directory.
+- # clear : to clear the terminal and empty all it.
+- # exit : to close and exit from the terminal.
+- # nautilus : to open the file manager of your machine.
+- # chmod ugo+rwx filename : change the mode ; read, write, execute; add or remove the premissions;to user, group or organization.
+- # echo "hi" : to simply print the text on the console of terminal.
