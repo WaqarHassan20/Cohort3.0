@@ -19,6 +19,4 @@ function sum(n) {
   return total;
 }
 let totalSum = sum(10);
-console.log("The sum of all numbers upto given number is =  ", totalSum);
-
-
+console.log("The sum of numbers up to the given number is =  ", totalSum);
