@@ -67,15 +67,10 @@
     let counter = 1;
     function AddTodo(){
         const inputElementValue = document.querySelector("input").value;
-     
         const newDivElement = document.createElement("div");
-     
         newDivElement.setAttribute("id",counter);
-     
         newDivElement.innerHTML = "<div>"+ inputElementValue +"</div><button onclick='deleteTodo("+ counter + ")'>Delete</button>";
-     
         counter+=1;
-     
         document.querySelector("body").appendChild(newDivElement);
     }
 
