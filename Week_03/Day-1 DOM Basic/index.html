@@ -66,12 +66,16 @@
 <script>
     let counter = 1;
     function AddTodo(){
-        const inputElement = document.querySelector("input");
-        const valueExtracted = inputElement.value;
+        const inputElementValue = document.querySelector("input").value;
+     
         const newDivElement = document.createElement("div");
+     
         newDivElement.setAttribute("id",counter);
-        newDivElement.innerHTML = "<div>"+valueExtracted+"</div><button onclick='deleteTodo("+ counter + ")'>Delete</button>";
+     
+        newDivElement.innerHTML = "<div>"+ inputElementValue +"</div><button onclick='deleteTodo("+ counter + ")'>Delete</button>";
+     
         counter+=1;
+     
         document.querySelector("body").appendChild(newDivElement);
     }
 
