@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+    <style>
+        
+        /* not good at plain CSS, so used the assitant tool */
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        div[id] {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        div[id] div {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        div[id] button {
+            background-color: #f44336;
+        }
+        div[id] button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+<body>
+    <h1>TODO App</h1>
+    <input type="text" placeholder=" Enter Your Todo!"></input>
+    <button onclick="AddTodo()">Submit</button>
+</body>
+<script>
+    let counter = 1;
+    function AddTodo(){
+        const inputElementValue = document.querySelector("input").value;
+        const newDivElement = document.createElement("div");
+        newDivElement.setAttribute("id",counter);
+        newDivElement.innerHTML = "<div>"+ inputElementValue +"</div><button onclick='deleteTodo("+ counter + ")'>Delete</button>";
+        counter+=1;
+        document.querySelector("body").appendChild(newDivElement);
+    }
+
+    function deleteTodo(index){
+        const element = document.getElementById(index);
+        element.parentNode.removeChild(element)
+    }
+
+
+
+</script>
