@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+  </head>
+<body>
+  <h1>TODO App</h1>
+  <input type="text" placeholder=" Enter Your Todo!"></input>
+  <div class="btnClass">
+  <button id="addBtn" onclick="AddTodo()">Submit</button>
+  <button id="delBtn" onclick="deleteFirstTodo()">DeleteFirst</button>
+  <button id="delBtn" onclick="deleteLastTodo()">DeleteLast</button>
+  </div>
+  <div id="todos"></div>
+</body>
+<script>
+
+  const todos = [];
+
+  function AddTodo() {
+    todos.push({
+      title: document.querySelector("input").value
+    });
+    render();
+  }
+
+function deleteTodo(index){
+  todos.splice(index,1);
+  render();
+}
+
+  function deleteFirstTodo() {
+    todos.splice(0 ,1);
+    render()
+  }
+  function deleteLastTodo() {
+    todos.splice(todos.length -1 ,1);
+    render()
+  }
+  
+function CreateTodoComponent(todo, index){
+  
+      const divEle = document.createElement("div");
+      const h1 = document.createElement("h1");
+      const button = document.createElement("button");
+      h1.innerHTML = todo.title;
+      button.innerHTML = "Delete";
+      button.setAttribute("onclick","deleteTodo(" + index + ")");
+      divEle.append(h1); 
+      divEle.append(button);
+      return divEle;
+    }
+    
+    function render() {
+      
+      document.querySelector("#todos").innerHTML = " "; 
+      for (let i = 0; i < todos.length; i++) { 
+        const todo = todos[i]; 
+        const element = CreateTodoComponent(todos[i], i);
+        document.querySelector("#todos").appendChild(element); 
+      }
+      
+  }
+</script>
+
+
+<!-- WORKIN OF THE ABOVE RENDER FUNCTION AND CODE : -->
+<!-- This code implements a simple TODO app using JavaScript. The todos array stores the list of TODO items. The AddTodo function retrieves the text input value from the user, creates a new TODO object, and adds it to the todos array, then calls the render function to update the displayed list. The render function first clears the existing TODO list by resetting the content of the #todos div, then iterates over the todos array to create a new div for each TODO item. Each div contains an h1 element displaying the TODO title and a button element (placeholder for future functionality). The div is appended to the #todos container to dynamically display the updated TODO list. -->
