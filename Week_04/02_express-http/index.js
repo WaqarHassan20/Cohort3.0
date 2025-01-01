@@ -46,14 +46,14 @@ app.post("/", (req, res) => {
 });
 
 // Replacing the unhealthy kidney with healthy one
-// app.put("/", (req, res) => {
-//   for (let i = 0; i < users[0].kidneys.length; i++) {
-//     users[0].kidneys[i].healthy = true;
-//   }
-//   res.json({
-//     msg: "Put , replacing Done!",
-//   });
-// });
+app.put("/", (req, res) => {
+  for (let i = 0; i < users[0].kidneys.length; i++) {
+    users[0].kidneys[i].healthy = true;
+  }
+  res.json({
+    msg: "Put , replacing Done!",
+  });
+});
 
 // Deleting the kidneys either healthy or not
 // app.delete("/", (req, res) => {
