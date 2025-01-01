@@ -56,19 +56,36 @@ app.put("/", (req, res) => {
 });
 
 // Deleting the kidneys either healthy or not
-app.delete("/", (req, res) => {
-  const newKidneys = [];
+
+function checkBeforeDelete() {
+  let atLeastOneUnhealthyKidney = false;
   for (let i = 0; i < users[0].kidneys.length; i++) {
     if (users[0].kidneys[i].healthy) {
-      newKidneys.push({
-        healthy: true,
-      });
+      atLeastOneUnhealthyKidney = false;
     }
   }
-  users[0].kidneys = newKidneys;
-  res.json({
-    msg: "Delete, removing Done!",
-  });
+  return atLeastOneUnhealthyKidney;
+}
+
+app.delete("/", (req, res) => {
+  if (checkBeforeDelete()) {
+    const newKidneys = [];
+    for (let i = 0; i < users[0].kidneys.length; i++) {
+      if (users[0].kidneys[i].healthy) {
+        newKidneys.push({
+          healthy: true,
+        });
+      }
+    }
+    users[0].kidneys = newKidneys;
+    res.json({
+      msg: "Deletion done with check",
+    });
+  } else {
+    res.status(411).json({
+      msg: "You have no bad kidneys",
+    });
+  }
 });
 
 app.listen(3000);
