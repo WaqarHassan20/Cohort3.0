@@ -13,6 +13,5 @@ app.get("/file/:fileName", (req, res) => {
 
 app.listen(3000);
 
-// This is the URL for browser
-// to show data inside the hello.txt
+// URL for browser to show data inside hello.txt
 // http://localhost:3000/file/hello.txt
