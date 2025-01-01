@@ -1,6 +1,6 @@
 // It is a mini hospital type project to learn how backend works
 // How requests are handled by the Postman and operated these requests
-
+// This file gives the basic idea for backend functionality
 const express = require("express");
 const app = express();
 
