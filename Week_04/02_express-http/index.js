@@ -60,8 +60,8 @@ app.put("/", (req, res) => {
 function checkBeforeDelete() {
   let atLeastOneUnhealthyKidney = false;
   for (let i = 0; i < users[0].kidneys.length; i++) {
-    if (users[0].kidneys[i].healthy) {
-      atLeastOneUnhealthyKidney = false;
+    if (!users[0].kidneys[i].healthy) {
+      atLeastOneUnhealthyKidney = true;
     }
   }
   return atLeastOneUnhealthyKidney;
