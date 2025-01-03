@@ -13,12 +13,12 @@
   </body>
   <script>
     async function sendRequest() {
-      const valueA = document.getElementById("a").value;
-      const valueB = document.getElementById("b").value;
+      const valA = document.getElementById("a").value;
+      const valB = document.getElementById("b").value;
 
       const response = await axios.post("http://localhost:3000/sum", {
-        a: valueA,
-        b: valueB,
+        a: valA,
+        b: valB,
       });
 
       console.log(response.data);

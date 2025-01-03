@@ -7,9 +7,9 @@ app.use(cors());
 app.post("/sum", (req, res) => {
   const a = parseInt(req.body.a);
   const b = parseInt(req.body.b);
-  const ans = a + b;
+  const sum = a + b;
   res.json({
-    Answer: ans,
+    Answer: sum,
   });
 });
 
