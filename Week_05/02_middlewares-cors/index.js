@@ -14,7 +14,6 @@ app.get("/sum/:firstArg/:secondArg", (req, res) => {
   const a = parseFloat(req.params.firstArg);
   const b = parseFloat(req.params.secondArg);
   const sum = a + b;
-  console.log(sum);
   res.json({ Sum: sum });
 });
 
@@ -22,7 +21,6 @@ app.get("/subtract/:firstArg/:secondArg", (req, res) => {
   const a = parseFloat(req.params.firstArg);
   const b = parseFloat(req.params.secondArg);
   const subtract = a - b;
-  console.log();
   res.json({ Subtraction: subtract });
 });
 
