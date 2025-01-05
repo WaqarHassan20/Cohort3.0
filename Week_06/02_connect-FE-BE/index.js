@@ -60,7 +60,7 @@ app.post("/signin", (req, res) => {
       {
         username: foundUser.username,
       },
-      JWT_SECRET
+      JWT_SECRET // Every one has this value different, so it is secured as without this, encoding cannot be done
     );
 
     res.json({
