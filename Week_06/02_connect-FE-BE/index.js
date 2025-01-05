@@ -7,6 +7,10 @@ app.use(express.json());
 
 let users = [];
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 function auth(req, res, next) {
   const token = req.headers.token;
   const decodedInformation = jwt.verify(token, JWT_SECRET);
@@ -65,10 +69,10 @@ app.post("/signin", logger, (req, res) => {
     );
 
     res.json({
-      message: token,
+      token: token,
     });
   } else {
-    res.status(403).send({ Token: "Invalid username or password" });
+    res.status(403).send({ token: "Invalid username or password" });
   }
   console.log(users);
 });
@@ -76,6 +80,7 @@ app.post("/signin", logger, (req, res) => {
 app.use(auth);
 
 app.get("/me", logger, (req, res) => {
+  // const userFound = users.find((user) => user.username === decodedData.username);
   let foundUser = null;
   for (let i = 0; i < users.length; i++) {
     if (users[i].userName == req.username) {
