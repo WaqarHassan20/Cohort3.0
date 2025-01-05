@@ -7,10 +7,6 @@ app.use(express.json());
 
 let users = [];
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
-});
-
 function auth(req, res, next) {
   const token = req.headers.token;
   const decodedInformation = jwt.verify(token, JWT_SECRET);
@@ -25,12 +21,11 @@ function auth(req, res, next) {
   }
 }
 
-function logger(req, res, next) {
-  console.log(req.method + " request came");
-  next();
-}
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
-app.post("/signup", logger, (req, res) => {
+app.post("/signup", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -50,7 +45,7 @@ app.post("/signup", logger, (req, res) => {
   console.log(users);
 });
 
-app.post("/signin", logger, (req, res) => {
+app.post("/signin", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -63,7 +58,7 @@ app.post("/signin", logger, (req, res) => {
   if (foundUser) {
     const token = jwt.sign(
       {
-        username: username,
+        username: foundUser.username,
       },
       JWT_SECRET
     );
@@ -77,9 +72,7 @@ app.post("/signin", logger, (req, res) => {
   console.log(users);
 });
 
-app.use(auth);
-
-app.get("/me", logger, (req, res) => {
+app.get("/me", auth, (req, res) => {
   // const userFound = users.find((user) => user.username === decodedData.username);
   let foundUser = null;
   for (let i = 0; i < users.length; i++) {
