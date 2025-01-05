@@ -83,3 +83,9 @@ app.get("/me", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
+
+// Important note about the jwt :
+// People think that anyone can decode the jwt token , so it has the vulnerbility
+// but the token generated cannot be decoded without the jwtSecret key
+// which is always known by the user only. so it is totally secured.
+// Example of the signed check of the bank to transfer money.
