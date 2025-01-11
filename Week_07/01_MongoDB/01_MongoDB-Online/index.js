@@ -6,9 +6,7 @@ const { userModel, todoModel } = require("./db");
 const { auth } = require("./auth");
 const app = express();
 
-mongoose.connect(
-  "mongodb+srv://waqarhassan7661:MONGODBid786@cluster0.k8erd.mongodb.net/helloUser-123"
-);
+mongoose.connect();
 
 app.use(express.json());
 
@@ -24,7 +22,7 @@ app.post("/signup", async (req, res) => {
       password: password,
       name: name,
     });
-  } catch (error) {
+  } catch (e) {
     res.json({
       error: e,
     });
