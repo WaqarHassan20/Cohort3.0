@@ -18,12 +18,17 @@ app.post("/signup", async (req, res) => {
   const email = req.body.email;
 
   //Using await because it making a transaction to database and so that transaction will take time so
-
-  await userModel.create({
-    email: email,
-    password: password,
-    name: name,
-  });
+  try {
+    await userModel.create({
+      email: email,
+      password: password,
+      name: name,
+    });
+  } catch (error) {
+    res.json({
+      error: e,
+    });
+  }
 
   res.json({
     message: "You are successfully Signed-up",
