@@ -2,10 +2,9 @@ const { Router } = require("express");
 const adminRouter = Router();
 const { adminModel } = require("../db");
 
-adminRouter.get("/signup", (req, res) => {
-  res.json({
-    message: "Admin signup Route",
-  });
+adminRouter.get("/signup",(req, res) => {
+  
+
 });
 
 adminRouter.get("/login", (req, res) => {
