@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 const objectId = mongoose.Schema.ObjectId;
-console.log("DataBase file is connected");
-
-mongoose.connect(
-  "mongodb+srv://waqarhassan7661:MONGODBid786@cluster0.k8erd.mongodb.net/Course-Selling-App"
-);
 
 const userSchema = new schema({
   email: { unique: true, type: String },
