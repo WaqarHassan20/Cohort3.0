@@ -1,24 +1,19 @@
 const jwt = require("jsonwebtoken");
+const { JWT_ADMIN_SECRET } = require("../imports");
 
-function auth(req, res, next) {
+function adminMiddleWare(req, res, next) {
   const token = req.headers.token;
-  const decodedData = jwt.verify(token, process.env.JWT_ADMIN_SECRET);
-  try {
-    if (decodedData) {
-      req.userId == decodedData.id;
-      next();
-    } else {
-      res.status(403).send({
-        message: "You are unathorized on this website",
-      });
-    }
-  } catch (error) {
-    res.json({
-      Error: error,
+  const decodedData = jwt.verify(token, JWT_ADMIN_SECRET);
+  if (decodedData) {
+    req.userId == decodedData.id;
+    next();
+  } else {
+    res.status(403).send({
+      message: "You are Signed In on this website",
     });
   }
 }
 
 module.exports = {
-  auth,
+  adminMiddleWare: adminMiddleWare,
 };
