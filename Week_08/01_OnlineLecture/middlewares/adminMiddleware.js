@@ -1,9 +1,8 @@
 const jwt = require("jsonwebtoken");
-const { JWT_ADMIN_SECRET } = require("../imports");
 
 function adminMiddleWare(req, res, next) {
   const token = req.headers.token;
-  const decodedData = jwt.verify(token, JWT_ADMIN_SECRET);
+  const decodedData = jwt.verify(token, process.env.JWT_ADMIN_SECRET);
   if (decodedData) {
     req.userId == decodedData.id;
     next();
