@@ -4,7 +4,8 @@ const jwt = require("jsonwebtoken");
 const userRouter = Router();
 const z = require("zod");
 const { userModel, courseModel } = require("../db");
-const userMiddleware = require("../middlewares/userMiddleware");
+const { userMiddleware } = require("../middlewares/userMiddleware");
+const { JWT_USER_SECRET } = require("../imports");
 
 userRouter.post("/signup", async (req, res) => {
   const requiredBody = z.object({
@@ -87,7 +88,7 @@ userRouter.post("/signin", async (req, res) => {
       return res.json({ message: "Incorrect Password" });
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_USER_SECRET);
+    const token = jwt.sign({ id: user._id }, JWT_USER_SECRET);
     res.status(200).send({
       token: token,
       message: "USER Signed In",
@@ -100,7 +101,7 @@ userRouter.post("/signin", async (req, res) => {
   }
 });
 
-userRouter.put("/purchases", userMiddleware, async (req, res) => {
+userRouter.get("/purchases", userMiddleware, async (req, res) => {
   try {
     const userId = req.userId;
     const courses = await courseModel.find({
