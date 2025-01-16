@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const { adminMiddleware } = require("../middlewares/adminMiddleware");
 const { adminModel, courseModel } = require("../db");
+const { JWT_ADMIN_SECRET } = require("../imports");
 
 adminRouter.post("/signup", async (req, res) => {
   const requiredBody = z.object({
@@ -17,6 +18,8 @@ adminRouter.post("/signup", async (req, res) => {
     firstName: z.string().min(4).max(20),
     lastName: z.string().min(4).max(20),
   });
+
+  console.log(req.body);
 
   const parsedData = requiredBody.safeParse(req.body);
   if (!parsedData.success) {
@@ -68,7 +71,7 @@ adminRouter.post("/signin", async (req, res) => {
   const parsedData = requiredBody.safeParse(req.body);
 
   if (!parsedData.success) {
-    res.json({
+    return res.json({
       message: "Invalid format of Values",
       Error: parsedData.error,
     });
@@ -92,7 +95,7 @@ adminRouter.post("/signin", async (req, res) => {
   }
 
   try {
-    const token = jwt.sign({ id: admin._id }, process.env.JWT_ADMIN_SECRET);
+    const token = jwt.sign({ id: admin._id }, JWT_ADMIN_SECRET);
     res.status(200).send({
       message: "Admin : signed In ",
       token: token,
@@ -130,7 +133,7 @@ adminRouter.post("/add-course", adminMiddleware, async (req, res) => {
   }
 });
 
-adminRouter.put("/update-course", async (req, res) => {
+adminRouter.put("/update-course", adminMiddleware, async (req, res) => {
   const adminId = req.adminId;
   const { title, description, price, imageURL, courseId } = req.body;
   try {
