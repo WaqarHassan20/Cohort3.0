@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
+const { JWT_USER_SECRET } = require("../imports");
 
 function userMiddleware(req, res, next) {
   const token = req.headers.token;
-  console.log(token);
-  const decoded = jwt.verify(token, process.env.BappaStunning);
+  // console.log(token);
+  const decoded = jwt.verify(token, JWT_USER_SECRET);
 
   try {
     if (decoded) {
@@ -16,11 +17,12 @@ function userMiddleware(req, res, next) {
     }
   } catch (error) {
     res.status(403).send({
-      Error: error,
+      message: "Invalid token",
+      Error: error.message,
     });
   }
 }
 
 module.exports = {
-  userMiddleware: userMiddleware,
+  userMiddleware,
 };
