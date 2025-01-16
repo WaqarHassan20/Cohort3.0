@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
-const objectId = mongoose.Schema.ObjectId;
+const objectId = schema.ObjectId;
 
 const userSchema = new schema({
-  email: { type: String, unique: false },
+  email: { type: String, unique: true },
   password: String,
   firstName: String,
   lastName: String,
 });
 
 const adminSchema = new schema({
-  email: { type: String, unique: false },
+  email: { type: String, unique: true },
   password: String,
   firstName: String,
   lastName: String,
@@ -25,7 +25,7 @@ const courseSchema = new schema({
 });
 
 const purchaseSchema = new schema({
-  cFourseId: objectId,
+  courseId: objectId,
   userId: objectId,
 });
 
