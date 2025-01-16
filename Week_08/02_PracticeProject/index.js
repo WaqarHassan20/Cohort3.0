@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const DATABASE_CONNECTION = process.env.DATABASE_CONNECTION;
+const { DATABASE_CONNECTION } = require("./imports");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
@@ -17,9 +17,7 @@ app.use("/api/v1/course", courseRouter);
 
 (async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://waqarhassan7661:MONGODBid786@cluster0.k8erd.mongodb.net/Pracitce-Course-App"
-    );
+    await mongoose.connect(DATABASE_CONNECTION);
     console.log("DataBase is connected successfully");
     app.listen(3000, () => {
       console.log("Server is running on the port 3000");
