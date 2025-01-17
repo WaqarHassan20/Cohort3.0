@@ -24,7 +24,8 @@ userRouter.get("/courses", userAuth, async (req, res) => {
   });
 });
 
-userRouter.get("/purchasedCourses", userAuth, async (req, res) => {
+// this is the course purchasing route . that user is purchasing the course
+userRouter.post("/courses/:courseId", userAuth, async (req, res) => {
   const courseId = req.params.courseId;
   const username = req.headers.username;
 
@@ -33,18 +34,35 @@ userRouter.get("/purchasedCourses", userAuth, async (req, res) => {
       username: username,
     },
     {
-      purchasedCourses: {
-        $push: courseId,
+      $push: {
+        purchasedCourses: courseId,
       },
     }
   );
 
   res.json({
-    message: "Purchase Successfully",
+    message: "Purchased Successfully",
   });
 });
 
-userRouter.post("/courses/:courseId", userAuth, (req, res) => {});
+// this is showing the all purchased courses
+userRouter.get("/purchasedCourses", userAuth, async (req, res) => {
+  const username = req.headers.username;
+  const user = await User.findOne({
+    username: username,
+  });
+
+  const purchasedCourses = await Course.find({
+    _id: {
+      $in: user.purchasedCourses,
+    },
+  });
+
+  res.json({
+    message: "All purchased Courses : ",
+    purchasedCourses: purchasedCourses,
+  });
+});
 
 module.exports = {
   userRouter,
