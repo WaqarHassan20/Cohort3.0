@@ -123,7 +123,7 @@ adminRouter.post("/add-course", adminMiddleware, async (req, res) => {
 
     res.json({
       message: "Course is created successfully by ADMIN",
-      courseId: course.id,
+      courseId: course._id,
     });
   } catch (error) {
     res.status(500).send({
