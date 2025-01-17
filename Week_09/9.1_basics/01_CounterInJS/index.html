@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="buttonParent"></div>
+    <!-- so basically the component is the outer thing which gives the structure -->
+    <!-- while the state is the inner thing which makes the changes -->
+  </body>
+  <script>
+    let state = {
+      count: 0,
+      color: "red"
+    };
+
+    function onButtonPress() {
+      state.count++;
+      state.color = "red";
+      renderButtonComponent();
+    }
+
+    function renderButtonComponent() {
+      document.getElementById("buttonParent").innerHTML = "";
+      const component = buttonComponent(state.count, state.color);
+      document.getElementById("buttonParent").appendChild(component);
+    }
+
+    function buttonComponent(count, color) {
+      const button = document.createElement("button");
+      button.innerHTML = `counter ${count}`;
+      button.setAttribute("onclick", "onButtonPress()");
+      button.setAttribute("style", "color:" + color);
+      return button;
+    }
+
+    renderButtonComponent();
+  </script>
+</html>
