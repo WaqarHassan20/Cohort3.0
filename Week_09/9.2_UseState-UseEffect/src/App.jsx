@@ -25,7 +25,7 @@ export default function App() {
 }
 
 
-function Counter(props) {
+function Counter(count, count2) {
 
 
   useEffect(() => {
@@ -43,14 +43,30 @@ function Counter(props) {
       // clean up means that if i am at home page, clear home paage just beofre going to another navigation like notifications  
       console.log("Clean Up inside second effect")
     }
-  }, [props.count])
+  }, [count])
 
 
   return <>
-    <h1>Counter one = {props.count}</h1>
-    <h1>Counter two = {props.count2}</h1>
+    <h1>Counter one = {count}</h1>
+    <h1>Counter two = {count2}</h1>
   </>
 }
+
+
+
+// An other syntax for above code by Harkirat Singh
+// useEffect(() => {
+//   console.log("State is changed")
+//   return () => {
+//     // clean up means that if i am at home page, clear home paage just beofre going to another navigation like notifications
+//     console.log("Clean Up inside second effect")
+//   }
+// }, [props.count])
+
+// return <>
+//   <h1>Counter one = {props.count}</h1>
+//   <h1>Counter two = {props.count2}</h1>
+// </>
 
 
 
