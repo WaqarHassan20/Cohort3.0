@@ -18,7 +18,7 @@ function Counter() {
     <>
       <div
         style={{
-          height: "100vh",
+          height: "33vh",
           backgroundColor: "darkkhaki",
           display: "flex",
           justifyContent: "center",
