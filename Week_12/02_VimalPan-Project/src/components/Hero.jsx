@@ -8,10 +8,12 @@ function Hero() {
             <h1 className="font-extrabold md:text-6xl text-4xl text-orange-950 tracking-tighter">
               Bolo Zubaan <span className="text-orange-50">Kesari</span>
             </h1>
-            <p className="text-xl text-orange-950">
+            <p className="text-xl text-orange-950 text-center font-medium">
               More you eats, sooner you dies
             </p>
           </div>
+
+          <div className="h-[70vh]"></div>
 
           {
             /* <img */

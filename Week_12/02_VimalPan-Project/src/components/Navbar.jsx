@@ -1,8 +1,8 @@
 function Navbar() {
   return (
     <>
-      <nav className="max-w-7xl mx-auto p-4 flex items-center justify-between bg-yellow-400">
-        <h1 className="text-2xl font-extrabold tracking-tighter text-orange-600 hover:text-orange-700 transition-all duration-300">
+      <nav className="sticky top-0 max-w-7xl mx-auto p-4 flex items-center justify-between">
+        <h1 className="text-2xl font-extrabold tracking-tighter text-orange-700 hover:text-orange-800 transition-all duration-300">
           Vimal
         </h1>
         <div className="flex gap-6 items-center">
