@@ -5,7 +5,7 @@ function SideContent() {
   return (
     <>
       <div className="w-full h-screen bg-gray-100 p-4">
-        <div className="hidden md:block h-44"></div>
+        <div className="hidden md:block h-44 bg-black"></div>
         <div className="grid grid-cols-11 gap-8 p-4">
           <div className="lg:col-span-2 col-span-11 h-fit rounded-2xl bg-white -translate-y-12 shadow-lg hidden md:block ">
             <div className="p-4 flex flex-col items-center gap-1 justify-center">
