@@ -1,9 +1,9 @@
-import OTP from "./components/HarkiratCode/OTP";
+import NoLoopUseRefInterview from "./components/HarkiratCode/ArrayOverLoopUseRef";
 
 function App() {
   return (
     <>
-      <OTP number={10} />
+      <NoLoopUseRefInterview num={6} />
     </>
   );
 }
