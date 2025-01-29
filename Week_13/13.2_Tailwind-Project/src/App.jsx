@@ -4,7 +4,7 @@ import SideContent from "./components/SideContent";
 function App() {
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-gray-100 ">
         <SideBar />
         <SideContent />
       </div>
