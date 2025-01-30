@@ -21,7 +21,7 @@ function SideBar() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
-    setSideBarOpen(isDesktop); // Open on desktop, close on mobile
+    setSideBarOpen(isDesktop);
   }, [isDesktop]);
 
   if (!sideBarOpen) {
