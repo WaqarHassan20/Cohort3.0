@@ -7,8 +7,7 @@ function userMiddleware(req, res, next) {
   const decoded = jwt.verify(token, JWT_USER_SECRET);
 
   try {
-    if (decoded) {
-      req.userId == decoded.id;
+    if (req.userId == decoded.id) {
       next();
     } else {
       res.status(403).send({
