@@ -6,44 +6,6 @@ const dotenv = require("dotenv");
 const { z } = require("zod");
 dotenv.config();
 
-ContentRouter.post("/", auth, async (req, res) => {
-  const requiredBody = z.object({
-    link: z.string().url(),
-    type: z.string(),
-    title: z.string(),
-    tags: z.array(z.string()),
-  });
-
-  const parsedData = requiredBody.safeParse(req.body);
-  if (!parsedData.success) {
-    return res
-      .status(403)
-      .send({ message: "Invalid Input Data", Error: parsedData.error });
-  }
-  try {
-    const { link, type, title, tags } = parsedData.data;
-    const { userId } = req.body;
-    console.log(userId);
-    const content = await ContentModel.create({
-      link: link,
-      type: type,
-      title: title,
-      tags: tags,
-      userId: userId,
-    });
-    if (content) {
-      return res.json({
-        message: "Content created Successfully",
-        Content: content,
-      });
-    }
-  } catch (error) {
-    console.error("Error during content creation:", error);
-    return res
-      .status(500)
-      .send({ message: "Error during content creation", error });
-  }
-});
 ContentRouter.get("/", auth, async (req, res) => {
   const { contentId } = req.body;
 
