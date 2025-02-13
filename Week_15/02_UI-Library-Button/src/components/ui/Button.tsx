@@ -1,5 +1,3 @@
-import { ReactElement } from "react";
-
 interface ButtonProps {
   variant: "primary" | "secondary";
   size: "sm" | "md" | "lg";
@@ -10,8 +8,8 @@ interface ButtonProps {
 }
 
 const varinatStyles = {
-  primary: "bg-blue-600 text-white  hover:bg-[#5046e4]",
-  secondary: "bg-[#e0e7fe]  hover:bg-blue-300",
+  primary: "bg-green-600 text-white  hover:bg-blue-600",
+  secondary: "bg-[#e0e7fe]  hover:bg-blue-600 hover:text-white",
 };
 
 const buttonSize = {
