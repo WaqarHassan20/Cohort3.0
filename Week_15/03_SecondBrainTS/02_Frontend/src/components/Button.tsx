@@ -7,17 +7,17 @@ interface ButtonProps {
 }
 
 const variantClass = {
-  primary: "bg-[#7164c0] text-white",
+  primary: "bg-blue-600 text-white",
   secondary: "bg-[#d9ddee] text-[#7164c0]",
 };
 
-const defaultStyles = "rounded-md font-medium px-4 py-2 flex items-center gap-3";
+const defaultStyles = "rounded-md font-semibold px-5 py-3 m-10 flex items-center";
 
 export function Button({ variant, text, startIcon }: ButtonProps) {
   return (
     <>
       <button className={`${variantClass[variant]} ${defaultStyles}`}>
-        {startIcon}
+        <div className="pr-3">{startIcon}</div>
         {text}
       </button>
     </>
