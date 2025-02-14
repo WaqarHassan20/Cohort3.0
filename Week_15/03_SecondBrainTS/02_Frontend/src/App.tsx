@@ -5,7 +5,7 @@ import { ShareIcon } from "./icons/ShareIcon";
 function App() {
   return (
     <>
-      <Button text="Share" variant="secondary" startIcon={<ShareIcon />} />
+      <Button text="Share Brain" variant="secondary" startIcon={<ShareIcon />} />
       <Button text="Add Icon" variant="primary" startIcon={<PlusIcon />} />
     </>
   );
