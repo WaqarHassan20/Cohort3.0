@@ -2,21 +2,27 @@ import { ReactElement } from "react";
 
 interface ButtonProps {
   variant: "primary" | "secondary";
-  startIcon: ReactElement;
+  startIcon?: ReactElement;
   text: string;
+  onClick?: () => void;
 }
 
 const variantClass = {
+  // primary: "bg-[#7E1891] text-white",
   primary: "bg-blue-600 text-white",
   secondary: "bg-[#d9ddee] text-[#7164c0]",
 };
 
-const defaultStyles = "rounded-md font-semibold px-5 py-3 m-10 flex items-center";
+const defaultStyles =
+  "rounded-md font-semibold px-5 py-3 flex items-center cursor-pointer";
 
-export function Button({ variant, text, startIcon }: ButtonProps) {
+export function Button({ onClick, variant, text, startIcon }: ButtonProps) {
   return (
     <>
-      <button className={`${variantClass[variant]} ${defaultStyles}`}>
+      <button
+        onClick={onClick}
+        className={`${variantClass[variant]} ${defaultStyles}`}
+      >
         <div className="pr-3">{startIcon}</div>
         {text}
       </button>
