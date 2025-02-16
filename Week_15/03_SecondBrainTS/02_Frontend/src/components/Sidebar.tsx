@@ -1,21 +1,27 @@
-import { ReactElement } from "react";
 import { TwitterIcon } from "../icons/TwitterIcon";
-import { YoutubeIcon } from "../icons/YoutubeIcon";
 import { Logo } from "../icons/Logo";
+import { SidebarItem } from "./SidebarItems";
+import { VideoIcon } from "../icons/VideoIcon";
+import { DocumentIcon } from "../icons/DocumentIcon";
+import { LinkIcon } from "../icons/LinkIcon";
+import { TagIcon } from "../icons/TagIcon";
 
 function Sidebar() {
   return (
     <>
-      <div className="h-screen w-72 bg-white fixed border-r-2 border-slate-200 left-0 top-0 pl-6 ">
-        <div className="flex items-center text-2xl font-semibold pt-4 ">
-          <div className="text-purple-600">
+      <div className="h-screen w-72 bg-white fixed border-r-2 border-slate-200 left-0 top-0 ">
+        <div className="flex items-center text-3xl font-semibold pt-3 pl-1 ">
+          <div className="text-blue-600 h-13 w-13">
             <Logo />
           </div>
           Second Brain
         </div>
-        <div className="pt-4">
-          <SidebarItem text="Twitter" icon={<TwitterIcon />} />
-          <SidebarItem text="Youtube" icon={<YoutubeIcon />} />
+        <div className="pt-12 pl-6 flex flex-col gap-4">
+          <SidebarItem text="Tweets" icon={<TwitterIcon />} />
+          <SidebarItem text="Videos" icon={<VideoIcon />} />
+          <SidebarItem text="Documents" icon={<DocumentIcon />} />
+          <SidebarItem text="Links" icon={<LinkIcon />} />
+          <SidebarItem text="Tags" icon={<TagIcon />} />
         </div>
       </div>
     </>
@@ -26,19 +32,3 @@ export default Sidebar;
 
 // =========================================== //
 // =========================================== //
-
-function SidebarItem({ text, icon }: itemProps) {
-  return (
-    <>
-      <div className="flex justify-start items-center py-2">
-        <div className="pr-2">{icon}</div>
-        <div className="font-medium">{text}</div>
-      </div>
-    </>
-  );
-}
-
-interface itemProps {
-  text: string;
-  icon: ReactElement;
-}

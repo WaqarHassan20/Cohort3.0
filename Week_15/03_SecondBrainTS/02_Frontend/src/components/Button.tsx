@@ -5,6 +5,8 @@ interface ButtonProps {
   startIcon?: ReactElement;
   text: string;
   onClick?: () => void;
+  fullWidth?: boolean;
+  loading?: boolean;
 }
 
 const variantClass = {
@@ -14,14 +16,24 @@ const variantClass = {
 };
 
 const defaultStyles =
-  "rounded-md font-semibold px-5 py-2.5 flex items-center cursor-pointer";
+  "rounded-md font-semibold px-5 py-2.5 flex justify-center items-center cursor-pointer";
 
-export function Button({ onClick, variant, text, startIcon }: ButtonProps) {
+export function Button({
+  onClick,
+  variant,
+  text,
+  startIcon,
+  fullWidth,
+  loading,
+}: ButtonProps) {
   return (
     <>
       <button
+        disabled={loading}
         onClick={onClick}
-        className={`${variantClass[variant]} ${defaultStyles}`}
+        className={`${variantClass[variant]} ${defaultStyles} ${
+          fullWidth ? "w-full" : ""
+        } ${loading ? "opacity-50" : ""}`}
       >
         <div className="pr-3">{startIcon}</div>
         {text}

@@ -33,6 +33,18 @@ function Card({ title, link, type }: CardProps) {
           </div>
 
           <div className="pt-4">
+            {type === "twitter" && (
+              <blockquote className="twitter-tweet px-4">
+                <p lang="zxx" dir="ltr">
+                  <a href="https://t.co/YEn8B1QO2x">
+                    pic.twitter.com/YEn8B1QO2x
+                  </a>
+                </p>
+                &mdash; Tolulope Michael (@im_tolumichael)
+                <a href={link}>February 14, 2025</a>
+              </blockquote>
+            )}
+
             {type === "youtube" && (
               <iframe
                 className="w-full h-full rounded-sm"
@@ -45,18 +57,6 @@ function Card({ title, link, type }: CardProps) {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
-            )}
-
-            {type === "twitter" && (
-              <blockquote className="twitter-tweet px-4">
-                <p lang="zxx" dir="ltr">
-                  <a href="https://t.co/YEn8B1QO2x">
-                    pic.twitter.com/YEn8B1QO2x
-                  </a>
-                </p>
-                &mdash; Tolulope Michael (@im_tolumichael)
-                <a href={link}>February 14, 2025</a>
-              </blockquote>
             )}
           </div>
         </div>
