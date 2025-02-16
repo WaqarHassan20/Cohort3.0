@@ -4,20 +4,23 @@ import Card from "./components/Card";
 import CreateContentModel from "./components/CreateContentModel";
 import { PlusIcon } from "./icons/PlusIcon";
 import { ShareIcon } from "./icons/ShareIcon";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [modelOpen, setModelOpen] = useState(false);
 
   return (
     <>
-      <div className="p-4">
+      <Sidebar />
+      
+      <div className="p-4 ml-72 bg-[#F8FAFC] min-h-screen">
         <CreateContentModel
           open={modelOpen}
           onClose={() => {
             setModelOpen(false);
           }}
         />
-        <div className="flex justify-end gap-4">
+        <div className="flex justify-end gap-4 mt-2 ">
           <Button
             onClick={() => {
               setModelOpen(true);
