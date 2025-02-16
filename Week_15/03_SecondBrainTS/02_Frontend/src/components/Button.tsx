@@ -14,7 +14,7 @@ const variantClass = {
 };
 
 const defaultStyles =
-  "rounded-md font-semibold px-5 py-3 flex items-center cursor-pointer";
+  "rounded-md font-semibold px-5 py-2.5 flex items-center cursor-pointer";
 
 export function Button({ onClick, variant, text, startIcon }: ButtonProps) {
   return (
