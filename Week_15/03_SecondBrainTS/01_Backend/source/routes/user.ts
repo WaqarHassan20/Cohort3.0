@@ -8,7 +8,7 @@ import { JWT_SECRET } from "../imports";
 
 // =========================== //
 // =========================== //
-UserRouter.post("/sign-up", async (req, res) => {
+UserRouter.post("/signup", async (req, res) => {
   console.log(req.body);
 
   const requiredBody = z.object({
@@ -57,7 +57,7 @@ UserRouter.post("/sign-up", async (req, res) => {
 
 // =========================== //
 // =========================== //
-UserRouter.post("/sign-in", async (req, res) => {
+UserRouter.post("/signin", async (req, res) => {
   const requiredBody = z.object({
     username: z.string().min(4).max(20),
     password: z
