@@ -50,14 +50,14 @@ export function Welcome() {
 
         <div className="w-full max-w-md bg-green-00 py-8 mx-auto px-4">
           <p className="text-gray-600 dark:text-gray-300 leading-loose text-center max-w-xl mx-auto px-4">
-            Welcome to{" "}
-            <span className="font-semibold text-blue-500">Second Brain</span> –
-            a space to share, learn, and grow together. Whether you're
-            expressing creativity or engaging in conversations, your ideas
-            matter here.
+            {/* Welcome to{" "} */}
+            <span className="font-semibold text-blue-500">Second Brain</span> -
+            Save, organize, and access your most valuable links and posts - all
+            in one place.
             <br />
-            <span className="italic tracking-wider text-gray-400 font-bold text-lg">
-              " Great ideas come from collaboration "{" "}
+        
+            <span className="italic tracking-wider bg-fuchsia-900 rounded-sm text-gray-300 py-1 px-3 font-bold text-lg">
+              Great ideas come from collaboration
             </span>
           </p>
         </div>
