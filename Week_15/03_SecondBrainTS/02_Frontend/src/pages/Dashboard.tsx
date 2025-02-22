@@ -5,10 +5,11 @@ import CreateContentModel from "../components/CreateContentModel";
 import { PlusIcon } from "../icons/PlusIcon";
 import { ShareIcon } from "../icons/ShareIcon";
 import Sidebar from "../components/Sidebar";
+import { UseContent } from "../hooks/UseContentHook";
 
 function Dashboard() {
   const [modelOpen, setModelOpen] = useState(false);
-
+  const contents = UseContent();
   return (
     <>
       <Sidebar />
@@ -37,17 +38,10 @@ function Dashboard() {
         </div>
 
         <div className="flex gap-4">
-          <Card
-            title="Start-Up"
-            link="https://twitter.com/im_tolumichael/status/1890414337254178851?ref_src=twsrc%5Etfw"
-            type="twitter"
-          />
-
-          <Card
-            title="5 Crore"
-            link="https://www.youtube.com/embed/E5zXCY63WpU?si=EKyvU4QlklhAyoq8"
-            type="youtube"
-          />
+          {/* {JSON.stringify(contents)} */}
+          {contents.map(({ title, link, type }) => {
+            return <Card title={title} link={link} type={type} />;
+          })}
         </div>
       </div>
     </>
