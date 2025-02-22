@@ -13,7 +13,7 @@ export function Input({ placeholder, ref }: InputProps) {
           ref={ref}
           type="text"
           placeholder={placeholder}
-          className="w-full px-4 py-3 border-2 border-gray-600 rounded-md text-gray-100 bg-gray-700 focus:outline-none  focus:border-gray-400 shadow-sm hover:shadow-lg transition ease-in-out duration-200 placeholder-gray-400"
+          className="w-full px-4 py-1.5 border-2 border-gray-700 rounded-md text-white font-semibold bg-gray-700 focus:outline-none  focus:border-gray-400 shadow-sm hover:shadow-lg transition ease-in-out duration-200 placeholder-gray-400"
         />
       </div>
     </>
