@@ -4,6 +4,8 @@ import { random } from "../utils";
 import { Router } from "express";
 const BrainRouter = Router();
 
+// http://localhost:3000/api/v1/brain/share
+// This is the share link in order to share the content True of False
 BrainRouter.post("/share", auth, async (req, res) => {
   const share = req.body.share;
 
@@ -41,12 +43,16 @@ BrainRouter.post("/share", auth, async (req, res) => {
   }
 });
 
+// http://localhost:3000/api/v1/brain/dtn2kh2ufl
+// This is the shareable link for this route
 BrainRouter.get("/:shareLink", auth, async (req, res) => {
   const hash = req.params.shareLink;
 
+  console.log(hash);
   const link = await LinkModel.findOne({ hash });
 
-  // console.log("Received link", link); for debugging
+  console.log("Received link", link);
+  //  for debugging
 
   if (!link) {
     res.status(404).json({ message: "Link not found" });

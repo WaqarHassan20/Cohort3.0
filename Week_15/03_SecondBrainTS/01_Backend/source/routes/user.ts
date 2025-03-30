@@ -60,11 +60,7 @@ UserRouter.post("/signup", async (req, res) => {
 UserRouter.post("/signin", async (req, res) => {
   const requiredBody = z.object({
     username: z.string().min(4).max(20),
-    password: z
-      .string()
-      .min(4)
-      .max(20)
-      .regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+    password: z.string().min(4).max(20),
   });
 
   // parsed data have three properties : success, data, error

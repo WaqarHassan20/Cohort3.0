@@ -3,8 +3,15 @@ import mongoose, { Schema, Types, model } from "mongoose";
 const contentTypes = ["images", "videos", "articles", "audio"];
 
 const UserSchema = new Schema({
-  username: { type: String, unique: true },
-  password: String,
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
 const ContentSchema = new Schema({
