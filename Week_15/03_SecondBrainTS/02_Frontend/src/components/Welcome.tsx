@@ -2,7 +2,7 @@ export function Welcome() {
   return (
     <>
       <div className=" flex flex-col justify-center items-center">
-        <p className="text-4xl font-extrabold text-center text-gray-800 dark:text-gray-100 mb-2">
+        <p className="lg:text-4xl text-2xl font-extrabold text-center text-gray-800 dark:text-gray-100 mb-2">
           Welcome to
         </p>
 
@@ -43,7 +43,7 @@ export function Welcome() {
             <path className="cls-1" d="M-292-20h700v700h-700z" />
           </svg>
 
-          <h1 className="text-transparent font-extrabold text-center bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 text-5xl">
+          <h1 className="text-transparent font-extrabold text-center bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 text-3xl lg:text-5xl">
             Second Brain
           </h1>
         </div>
