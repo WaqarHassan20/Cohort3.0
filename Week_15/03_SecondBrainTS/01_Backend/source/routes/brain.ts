@@ -3,7 +3,7 @@ import { auth } from "../middleware/auth";
 import { random } from "../utils";
 import { Router } from "express";
 const BrainRouter = Router();
-
+;
 // http://localhost:3000/api/v1/brain/share
 // This is the share link in order to share the content True of False
 BrainRouter.post("/share", auth, async (req, res) => {
