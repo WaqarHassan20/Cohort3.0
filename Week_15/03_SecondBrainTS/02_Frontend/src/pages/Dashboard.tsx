@@ -14,7 +14,7 @@ function Dashboard() {
     <>
       <Sidebar />
 
-      <div className="p-4 ml-72 bg-[#F8FAFC] min-h-screen">
+      <div className="p-4 lg:ml-72 md:ml-52 bg-[#F8FAFC] min-h-screen">
         <CreateContentModel
           open={modelOpen}
           onClose={() => {
@@ -37,7 +37,7 @@ function Dashboard() {
           />
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex md:flex-row flex-col gap-4 mt-6">
           {/* {JSON.stringify(contents)} */}
           {contents.map(({ title, link, type }) => {
             return <Card title={title} link={link} type={type} />;

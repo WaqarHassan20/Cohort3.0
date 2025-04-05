@@ -9,7 +9,7 @@ import { TagIcon } from "../icons/TagIcon";
 function Sidebar() {
   return (
     <>
-      <div className="h-screen w-72 bg-white fixed border-r-2 border-slate-200 left-0 top-0 ">
+      <div className="h-screen lg:w-72 w-52 bg-white fixed border-r-2 border-slate-200 left-0 top-0 ">
         <div className="flex items-center text-3xl font-semibold pt-3 pl-1 ">
           <div className="text-blue-600 h-13 w-13">
             <Logo />
