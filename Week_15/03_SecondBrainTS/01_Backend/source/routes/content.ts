@@ -4,19 +4,12 @@ const ContentRouter = Router();
 import { z } from "zod";
 import { auth } from "../middleware/auth";
 
-// Craete Content sample data
-// {
-// "link": "https://twitter.com/google/jobs",
-// "type": "videos",
-// "title": "How to get job in google as software engineer",
-// "tags": ["education", "technology", "programming"]
-// }
 
 ContentRouter.post("/", auth, async (req, res) => {
   const requiredBody = z.object({
-    link: z.string().min(4).max(50),
-    type: z.string().min(4).max(50),
-    title: z.string().min(4).max(50),
+    link: z.string().min(4).max(500),
+    type: z.enum(["youtube", "twitter", "linkedin", "facebook", "instagram"]),
+    title: z.string().min(4).max(500),
     tags: z.array(z.string().min(1)).min(3).max(5),
   });
 

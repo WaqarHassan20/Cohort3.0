@@ -1,7 +1,5 @@
 import mongoose, { Schema, Types, model } from "mongoose";
 
-const contentTypes = ["images", "videos", "articles", "audio"];
-
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -16,11 +14,12 @@ const UserSchema = new Schema({
 
 const ContentSchema = new Schema({
   link: { type: String, required: true },
-  type: { type: String, enum: contentTypes, required: true },
+  type: { type: String, required: true }, // Remove enum validation here
   title: { type: String, required: true },
   tags: [{ type: String, ref: "Tags", required: true }],
   UserId: { type: Types.ObjectId, ref: "Users", required: true },
 });
+
 
 const LinkSchema = new Schema({
   hash: String,
