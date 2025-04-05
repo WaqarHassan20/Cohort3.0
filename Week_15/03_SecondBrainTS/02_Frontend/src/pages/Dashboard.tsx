@@ -26,7 +26,7 @@ function Dashboard() {
             onClick={() => {
               setModelOpen(true);
             }}
-            text="Add Icon"
+            text="Add Link"
             variant="primary"
             startIcon={<PlusIcon />}
           />
@@ -37,7 +37,7 @@ function Dashboard() {
           />
         </div>
 
-        <div className="flex md:flex-row flex-col gap-4 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-6">
           {/* {JSON.stringify(contents)} */}
           {contents.map(({ title, link, type }) => {
             return <Card title={title} link={link} type={type} />;
