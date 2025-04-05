@@ -17,14 +17,14 @@ ContentRouter.post("/", auth, async (req, res) => {
     link: z.string().min(4).max(50),
     type: z.string().min(4).max(50),
     title: z.string().min(4).max(50),
-    tags: z.array(z.string().min(4).max(40)),
+    tags: z.array(z.string().min(1)).min(3).max(5),
   });
 
   const parsedData = requiredBody.safeParse(req.body);
   if (!parsedData.success) {
     res.status(400).send({
       message: "Invalid Input Data",
-      Error: parsedData.error,
+      Error: parsedData.error.format(),
     });
     return;
   }
