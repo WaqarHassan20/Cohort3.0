@@ -50,24 +50,20 @@ ws.on("connection", (socket) => {
   });
 });
 
+// Basic code : in the beginning of the lecture to test backend //
+
 // import { WebSocketServer, WebSocket } from "ws";
-
 // const ws = new WebSocketServer({ port: 8080 });
-
 // let numberOfClients = 0;
-
 // let allSockets: WebSocket[] = [];
 
 // ws.on("connection", (socket) => {
 //   numberOfClients++;
-
 //   console.log("User Connected # is : ", numberOfClients);
-
 //   allSockets.push(socket);
 
 //   socket.on("message", (message) => {
 //     console.log("Received message : ", message.toString());
-
 //     // for (let i = 0; i < allSockets.length; i++) {
 //     //   const s = allSockets[i];
 //     //   s.send("Broadcasted Message : " + message.toString());

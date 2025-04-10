@@ -37,6 +37,7 @@ ws.on("connection", (socket) => {
         });
     });
 });
+// Basic code : in the beginning of the lecture to test backend //
 // import { WebSocketServer, WebSocket } from "ws";
 // const ws = new WebSocketServer({ port: 8080 });
 // let numberOfClients = 0;
