@@ -40,7 +40,7 @@ app.listen(PORT, () => {
   console.log(`HTTP server running on http://localhost:${PORT}`);
 });
 
-
+// Breif summary for both and comparision and usecase //
 // In an Express server, you handle requests through routes like /login, /products, etc. Each route responds to a specific HTTP method like GET, POST, etc. The communication is one-way: the client sends a request, and the server responds once.
 // Example: The user sends a POST request to /echo, and the server sends back a response with the echoed message.
 
