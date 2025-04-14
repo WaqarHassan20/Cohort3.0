@@ -34,8 +34,12 @@ PostgreSQL is a robust, open-source relational database system, ideal for struct
 
 ## Setup Instructions
 
-### 1. Install PostgreSQL
-
-```bash
+``` bash/terminal commands 
 sudo apt update
 sudo apt install postgresql postgresql-contrib
+
+
+
+# ==================================================================================================
+# ==================================================================================================
+# ==================================================================================================
