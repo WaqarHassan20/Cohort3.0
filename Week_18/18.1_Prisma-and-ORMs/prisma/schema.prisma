@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement()) // Primary key is mentioned by @id
+  username String @unique
+  password String
+  age      Int
+  city     String
+  todo     Todo[]
+}
+
+model Todo {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  done        Boolean
+  userId      Int
+  user        User    @relation(fields: [userId], references: [id])
+  // This Todo belongs to one User, identified by the userId field, which matches the id of a User //
+}
+
+// Definition (in straight simple terms):
+// user → is the name of the relation field (a link to the User model).
+
+// User → the model it relates to.
+
+// fields: [userId] → uses userId as the foreign key in this model (Todo).
+
+// references: [id] → points to the primary key id in the User model.
