@@ -1,8 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-### Very first dev with Next.js
+### First Development in Next.js
 
 ![Random UIs](./app/photos/admin.png)
+![Random UIs](./app/photos/users.png)
+![Random UIs](./app/photos/todos.png)
+![Random UIs](./app/photos/signin.png)
+![Random UIs](./app/photos/signup.png)
 
 ## Getting Started
 
