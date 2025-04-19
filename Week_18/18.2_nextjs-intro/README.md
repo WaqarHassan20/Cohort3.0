@@ -3,18 +3,23 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ### First Development in Next.js
 
 ## Admin route
+
 ![Admin route](./app/photos/admin.png)
 
 ## Users route
+
 ![Users Route](./app/photos/users.png)
 
 ## Backend Api call
-![Backend Api call](./app/photos/todos.png)
+
+![Backend Api call](./app/photos/Todos.png)
 
 ## Signin page
+
 ![Signin page](./app/photos/signin.png)
 
-## Signup page 
+## Signup page
+
 ![Signup page](./app/photos/signup.png)
 
 ## Getting Started
