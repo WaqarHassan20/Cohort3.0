@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Very first dev with Next.js
 
+![Random UIs](./app/photos/admin.png)
+
 ## Getting Started
 
 First, run the development server:
