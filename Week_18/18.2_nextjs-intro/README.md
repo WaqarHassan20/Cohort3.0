@@ -2,11 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### First Development in Next.js
 
-![Random UIs](./app/photos/admin.png)
-![Random UIs](./app/photos/users.png)
-![Random UIs](./app/photos/todos.png)
-![Random UIs](./app/photos/signin.png)
-![Random UIs](./app/photos/signup.png)
+![Admin route](./app/photos/admin.png)
+![Users Route](./app/photos/users.png)
+![Backend Api call](./app/photos/todos.png)
+![Signin page](./app/photos/signin.png)
+![Signup page](./app/photos/signup.png)
 
 ## Getting Started
 
