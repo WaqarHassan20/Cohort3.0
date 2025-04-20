@@ -87,3 +87,43 @@ function LabelledInput({
     </div>
   );
 }
+
+
+
+
+// import axios from "axios";
+
+// async function getUserDetails() {
+//   try {
+//     const response = await axios.get("http://localhost:3000/api/user")
+// 	  return response.data;
+//   }  catch(e) {
+//     console.log(e);
+//   }
+// }
+
+// export default async function Home() {
+// const userData = await getUserDetails();
+
+
+//   // ================= AND =================== //
+//   // Better approach for data fetching
+
+// import { PrismaClient } from "@prisma/client";
+
+// const client = new PrismaClient();
+
+// async function getUserDetails() {
+//   try {
+//     const user = await client.user.findFirst({});
+// 	  return {
+//       name: user?.username,
+//       email: user?.username
+//     }
+//   }  catch(e) {
+//     console.log(e);
+//   }
+// }
+
+// export default async function Home() {
+// const userData = await getUserDetails();

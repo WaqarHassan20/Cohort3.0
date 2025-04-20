@@ -7,7 +7,7 @@ const client = new PrismaClient();
 export async function POST(req: NextRequest) {
   const data = await req.json();
   console.log(data);
-  client..create({
+  await client.user.create({
     data: {
       username: data.username,
       password: data.password,
@@ -16,3 +16,7 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ message: "User Signed Up successfully!" });
 }
+
+
+
+
