@@ -52,3 +52,8 @@ export default async function Home() {
     {JSON.stringify(session)}
   </div>
 }
+
+
+// NOTE //
+// This is not showing the correct data as well as format //
+// there must be a some kind of bug here . I tried but I cannot find it //
