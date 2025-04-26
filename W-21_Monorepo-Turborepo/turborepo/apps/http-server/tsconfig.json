@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/typescript-config/backends.json"
+}
+
+// {
+//   "name": "@repo/typescript-config",
+//   "exports": {
+//     "./backend": "./backend.json"
+//   }
+// }
