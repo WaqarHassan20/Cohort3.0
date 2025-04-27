@@ -1,7 +1,10 @@
 {
-  "extends": "@repo/typescript-config/backends.json"
+  "extends": "@repo/typescript-config/backends.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  }
 }
-
 
 // {
 //   "name": "@repo/typescript-config",
