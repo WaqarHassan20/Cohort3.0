@@ -3,7 +3,7 @@ import express from "express";
 const userRouter = express.Router();
 import { z } from "zod";
 import bcrypt from "bcrypt";
-import { User } from "../db.js";
+import { Account, User } from "../db.js";
 import { JWT_SECRET } from "../config.js";
 
 const requiredObject = z.object({
@@ -38,12 +38,28 @@ userRouter.post("/signup", async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await User.create({
+    const newUser = await User.create({
       username: username,
       password: hashedPassword,
       firstName: firstName,
       lastName: lastName,
     });
+
+    // ====================================== //
+    // for new user, created a new account //
+
+    const userId = newUser._id;
+
+    const balance = Math.floor(Math.random() * 10000 + 1);
+
+    await Account.create({
+      userId: userId,
+      balance: balance,
+    });
+
+    console.log("Balance created for new user is : ", balance);
+
+    // ====================================== //
 
     return res.json({
       message: "You have Sign-Up Sucessfully",
@@ -89,9 +105,12 @@ userRouter.post("/signin", async (req, res) => {
 // ========================================= //
 // Bulk search route for user //
 // ========================================= //
+// This will work when the query is passed by firstname or lastname
+// only not the username or any of its combination of letters
 
 userRouter.get("/bulk", async (req, res) => {
-  const filter = req.body.filter || "";
+  const filter = req.query.filter || "";
+
   const users = await User.find({
     $or: [
       {
@@ -112,7 +131,9 @@ userRouter.get("/bulk", async (req, res) => {
       username: user.username,
       firstName: user.firstName,
       lastName: user.lastName,
+      _id: user._id,
     })),
   });
 });
+
 export { userRouter };
