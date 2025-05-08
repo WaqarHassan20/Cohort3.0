@@ -1,0 +1,3 @@
+const JWT_TOKEN = "BAPPASTUNNING30";
+
+export { JWT_TOKEN };
