@@ -1,5 +1,6 @@
 import { middleware } from "./middleware";
 import { JWT_TOKEN } from "@repo/backend-common/config";
+import { prismaClient } from "@repo/db/client";
 import {
   CreateUserSchema,
   SignInSchema,
@@ -18,6 +19,12 @@ app.use("/signup", (req, res) => {
     res.json({ message: "Invalid Inputs" });
     return;
   }
+
+  prismaClient.user.create({
+    
+  })
+
+
 });
 
 app.use("/signin", (req, res) => {
