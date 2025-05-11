@@ -152,6 +152,35 @@ app.post("/room", middleware, async (req, res) => {
   }
 });
 
+app.get("/chats/:roomId", async (req, res) => {
+  const roomId = Number(req.params.roomId);
+
+  if (!roomId) {
+    res.json({ message: "Invalid roomId" });
+    return;
+  }
+  try {
+    const messages = await prismaClient.chat.findMany({
+      where: {
+        roomId: roomId,
+      },
+      orderBy: {
+        id: "desc",
+      },
+      take: 50,
+    });
+    console.log(messages);
+    res.json({
+      message: "Fetched messages",
+      messages: messages,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({ message: "Error while fetching messages" });
+    return;
+  }
+});
+
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
 });
