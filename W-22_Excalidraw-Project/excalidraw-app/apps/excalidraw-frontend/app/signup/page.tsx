@@ -1,7 +1,9 @@
-export default function Home() {
-    return (      
-        <div className="min-h-screen bg-background">
-        Sign Up page is there !    
-        </div>
-          );
-  }
+import { AuthPage } from "@/components/AuthPage";
+
+export default function Signup() {
+    return (
+        <AuthPage
+            isSignin={false}
+        />
+    )
+}
