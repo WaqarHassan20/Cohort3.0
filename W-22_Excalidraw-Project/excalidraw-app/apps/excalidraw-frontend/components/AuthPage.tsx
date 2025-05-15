@@ -3,7 +3,16 @@ import Link from "next/link";
 
 export function AuthPage({ isSignin }: { isSignin: boolean }) {
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex flex-col justify-center items-center min-h-screen">
+      <div className="mb-16">
+        <p className="max-w-md text-center font-bold text-4xl text-black">
+          {isSignin ? "Welcome Back! Sign in" : (
+            <>
+              Excalidraw!<br />collaborate with diagrams
+            </>
+          )}
+        </p>
+      </div>
       <div className="border border-gray-200 rounded-xl p-8 w-full max-w-md text-gray-800 shadow-2xl">
         <h2 className="text-3xl font-semibold text-center mb-6 text-black">
           {isSignin ? 'Sign In' : 'Sign Up'}
