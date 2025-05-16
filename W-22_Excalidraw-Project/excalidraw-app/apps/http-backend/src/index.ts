@@ -2,6 +2,7 @@ import { middleware } from "./middleware";
 import { JWT_TOKEN } from "@repo/backend-common/config";
 import { prismaClient } from "@repo/db/client";
 import bcrypt from "bcrypt";
+import cors from "cors";
 import {
   CreateUserSchema,
   SignInSchema,
@@ -12,6 +13,7 @@ import express from "express";
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // ============================= //
 // ========== SignUp =========== //

@@ -18,12 +18,25 @@ type shape =
     };
 
 // Initializes drawing on the canvas
-export async function initDraw(canvas: HTMLCanvasElement, roomId: string) {
+export async function initDraw(
+  canvas: HTMLCanvasElement,
+  roomId: string,
+  socket: WebSocket
+) {
   const ctx = canvas.getContext("2d"); // Get the 2D drawing context
 
   const existingShapes: shape[] = await getShapes(roomId); // Array to store already drawn shapes
 
   if (!ctx) return; // Exit if canvas context is not available
+
+  socket.onmessage = (event) => {
+    const message = JSON.parse(event.data); // Parse incoming message
+    if (message.type === "chat") {
+      const parsedShape = JSON.parse(message.message);
+      existingShapes.push(parsedShape); // Add new shape to existing shapesf
+      clearCanvas(canvas, ctx, existingShapes);
+    }
+  };
 
   // Set canvas background to black
   ctx.fillStyle = "rgba(0,0,0)";
@@ -49,13 +62,20 @@ export async function initDraw(canvas: HTMLCanvasElement, roomId: string) {
     const height = e.clientY - starty; // Calculate height based on mouse movement
 
     // Store the new rectangle in the shapes array
-    existingShapes.push({
+    const shape: shape = {
       type: "rect",
       x: startX,
       y: starty,
       width,
       height,
-    });
+    };
+    existingShapes.push(shape);
+    socket.send(
+      JSON.stringify({
+        type: "chat",
+        message: JSON.stringify({ shape }),
+      })
+    );
   });
 
   // While mouse is moving and clicked down (dragging)
