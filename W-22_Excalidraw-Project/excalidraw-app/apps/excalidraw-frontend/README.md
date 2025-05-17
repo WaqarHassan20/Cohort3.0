@@ -10,6 +10,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ![reviews](../excalidraw-frontend//screenshots//04_testimonials.png)
 ![faqs](../excalidraw-frontend//screenshots//05_faqs.png)
 ![footer](../excalidraw-frontend//screenshots//06_footer.png)
+![drawing](../excalidraw-frontend//screenshots//07_drawing.png)
 
 ## Getting Started
 
