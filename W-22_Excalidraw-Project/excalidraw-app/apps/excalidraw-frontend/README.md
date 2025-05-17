@@ -18,10 +18,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ![drawing](../excalidraw-frontend//screenshots//07_drawing.png)
 
-## Errors
-
-![drawing](../excalidraw-frontend//screenshots//08_circleError.png)
-
 ## Canvas Board
 
 ![drawing](../excalidraw-frontend//screenshots//09_finalBoard.png)
