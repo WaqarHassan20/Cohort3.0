@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function getShapes(roomId: string) {
   const res = await axios.get(`${HTTP_BACKEND}/chats/${roomId}`);
-
+  console.log(res);
   const messages = res.data.messages;
 
   const shapes = messages
