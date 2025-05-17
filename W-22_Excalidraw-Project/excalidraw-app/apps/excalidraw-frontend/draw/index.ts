@@ -33,7 +33,7 @@ export async function initDraw(
     const message = JSON.parse(event.data); // Parse incoming message
     if (message.type === "chat") {
       const parsedShape = JSON.parse(message.message);
-      existingShapes.push(parsedShape); // Add new shape to existing shapesf
+      existingShapes.push(parsedShape.shape); // Add new shape to existing shapesf
       clearCanvas(canvas, ctx, existingShapes);
     }
   };
@@ -46,26 +46,26 @@ export async function initDraw(
   // Variables to track mouse interaction
   let clicked = false; // Tracks if mouse is being clicked
   let startX = 0; // X coordinate where mouse was pressed down
-  let starty = 0; // Y coordinate where mouse was pressed down
+  let startY = 0; // Y coordinate where mouse was pressed down
 
   // When mouse is pressed down on canvas
   canvas.addEventListener("mousedown", (e) => {
     clicked = true;
     startX = e.clientX; // Record starting X
-    starty = e.clientY; // Record starting Y
+    startY = e.clientY; // Record starting Y
   });
 
   // When mouse is released after clicking
   canvas.addEventListener("mouseup", (e) => {
     clicked = false;
     const width = e.clientX - startX; // Calculate width based on mouse movement
-    const height = e.clientY - starty; // Calculate height based on mouse movement
+    const height = e.clientY - startY; // Calculate height based on mouse movement
 
     // Store the new rectangle in the shapes array
     const shape: shape = {
       type: "rect",
       x: startX,
-      y: starty,
+      y: startY,
       width,
       height,
     };
@@ -73,6 +73,7 @@ export async function initDraw(
     socket.send(
       JSON.stringify({
         type: "chat",
+        roomId: Number(roomId),
         message: JSON.stringify({ shape }),
       })
     );
@@ -82,12 +83,12 @@ export async function initDraw(
   canvas.addEventListener("mousemove", (e) => {
     if (clicked) {
       const width = e.clientX - startX;
-      const height = e.clientY - starty;
+      const height = e.clientY - startY;
 
       // Clear canvas and redraw existing shapes and current preview rectangle
       clearCanvas(canvas, ctx, existingShapes);
       ctx.strokeStyle = "rgba(255,255,255)"; // Set stroke color to white for drawing preview
-      ctx.strokeRect(startX, starty, width, height); // Draw preview rectangle
+      ctx.strokeRect(startX, startY, width, height); // Draw preview rectangle
     }
   });
 }
@@ -119,12 +120,21 @@ function clearCanvas(
 
 async function getShapes(roomId: string) {
   const res = await axios.get(`${HTTP_BACKEND}/chats/${roomId}`);
-  const messages = res.data.message;
+  const messages = res.data.messages;
 
-  const shapes = messages.map((x: { message: string }) => {
-    const messageData = JSON.parse(x.message);
-    return messageData;
-  });
+  const shapes = messages
+    .map((x: { message: string }) => {
+      try {
+        const messageData = JSON.parse(x.message);
+        return messageData.shape;
+      } catch (err) {
+        console.log(err);
+        console.warn("Invalid JSON message:", x.message);
+        return null;
+      }
+    })
+    .filter(Boolean); // Remove nulls
 
+  console.log(shapes);
   return shapes;
 }

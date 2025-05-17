@@ -30,7 +30,7 @@ export function Header() {
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
         <div className="flex items-center">
-          <Link href="/" className="text-xl font-bold tracking-tight">
+          <Link href="/" className="text-3xl font-bold tracking-tight">
             Excalidraw
           </Link>
         </div>

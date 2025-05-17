@@ -50,7 +50,14 @@ wss.on("connection", function connection(ws, request) {
   ws.on("message", async function message(data) {
     // This code first parses incoming data into a JavaScript object using TypeScript type assertions (data as unknown as string) and JSON.parse. It then checks the type of the parsed data. If the type is "join_room", it finds the user from the users array using their WebSocket (ws) and, if found, adds the roomId to that user’s rooms array.
 
-    const parsedData = JSON.parse(data as unknown as string);
+    let parsedData;
+
+    if (typeof data !== "string") {
+      parsedData = JSON.parse(data.toString());
+    } else {
+      parsedData = JSON.parse(data);
+    }
+
     if (parsedData.type === "join_room") {
       const user = users.find((u) => u.ws === ws);
       if (!user) return;

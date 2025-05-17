@@ -20,7 +20,7 @@ export function RoomCanvas({roomId}: {roomId:string}) {
     if (!socket) {
         return <div>Connecting to socket server .....</div>
     }
-
+    
     return <>
     <Canvas roomId={roomId} socket={socket} />
     </>
