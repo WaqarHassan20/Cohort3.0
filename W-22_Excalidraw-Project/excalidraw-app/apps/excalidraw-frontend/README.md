@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Front-end SS
+
+[`singup`](../excalidraw-frontend//screenshots//singup.png)
+[`singin`](../excalidraw-frontend//screenshots//signin.png)
+[`landing page`](../excalidraw-frontend//screenshots//01_landingPage.png)
+[`designs`](../excalidraw-frontend//screenshots//02_works.png)
+[`works`](../excalidraw-frontend//screenshots/03_works.png)
+[`reviews`](../excalidraw-frontend//screenshots//04_testimonials.png)
+[`faqs`](../excalidraw-frontend//screenshots//05_faqs.png)
+[`footer`](../excalidraw-frontend//screenshots//06_footer.png)
+
 ## Getting Started
 
 First, run the development server:
