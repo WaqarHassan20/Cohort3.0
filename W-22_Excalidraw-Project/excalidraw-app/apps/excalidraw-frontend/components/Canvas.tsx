@@ -12,7 +12,7 @@ export function Canvas({roomId,socket}: {roomId:string,socket:WebSocket}) {
         {
             initDraw(canvasRef.current, roomId,socket);
         }
-    },[canvasRef])
+    },[canvasRef, roomId, socket])
 
     return <>
     <canvas ref={canvasRef} width={1536} height={745}></canvas>
