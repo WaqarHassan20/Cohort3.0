@@ -18,7 +18,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ![drawing](../excalidraw-frontend//screenshots//07_drawing.png)
 
-## Canvas Board
+## Canvas : Hey, Yo bro What's Up!
 
 ![drawing](../excalidraw-frontend//screenshots//09_finalBoard.png)
 
